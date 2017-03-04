@@ -1,4 +1,4 @@
-package com.example.ark.myinventoryapp.data;
+package com.example.ark.myphones.data;
 
 import android.content.ContentResolver;
 import android.net.Uri;
@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 public final class ProductContract {
 
 
-    public static final String CONTENT_AUTHORITY = "com.example.ark.myinventoryapp";
+    public static final String CONTENT_AUTHORITY = "com.example.ark.myphones";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     public static final String PATH_INVENTORIES = "inventory2";
 
@@ -34,6 +34,8 @@ public final class ProductContract {
         public final static String COLUMN_PRODUCT_QUANTITY = "quantity";
         public final static String COLUMN_PRODUCT_IMAGE = "image";
         public final static String COLUMN_SUPPLIER_NBR = "contact";
+        public final static String COLUMN_SIZE = "size";
+        public final static String COLUMN_COLOR = "color";
 
     }
 }

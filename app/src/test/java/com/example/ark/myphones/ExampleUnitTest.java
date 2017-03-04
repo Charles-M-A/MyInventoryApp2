@@ -1,4 +1,4 @@
-package com.example.ark.myinventoryapp;
+package com.example.ark.myphones;
 
 import org.junit.Test;
 

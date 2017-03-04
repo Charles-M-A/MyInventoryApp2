@@ -1,4 +1,4 @@
-package com.example.ark.myinventoryapp;
+package com.example.ark.myphones;
 
 import android.app.LoaderManager;
 import android.content.ContentUris;
@@ -18,7 +18,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.ark.myinventoryapp.data.ProductContract;
+import com.example.ark.myphones.data.ProductContract;
 
 public class ProductListActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -41,7 +41,6 @@ public class ProductListActivity extends AppCompatActivity implements LoaderMana
                 startActivity(intent);
             }
         });
-
         ListView productListView = (ListView) findViewById(R.id.list);
 
         View emptyView = findViewById(R.id.empty_view);
@@ -64,14 +63,16 @@ public class ProductListActivity extends AppCompatActivity implements LoaderMana
 
     private void insertProduct() {
 
-        Uri uri = Uri.parse("android.resource://com.example.ark.myinventoryapp/drawable/murukku");
+        Uri uri = Uri.parse("android.resource://com.example.ark.myphones/drawable/murukku");
         String image_path = uri.toString().trim();
         ContentValues values = new ContentValues();
-        values.put(ProductContract.ProductEntry.COLUMN_PRODUCT_NAME, "Murukku");
-        values.put(ProductContract.ProductEntry.COLUMN_PRODUCT_PRICE, 50);
+        values.put(ProductContract.ProductEntry.COLUMN_PRODUCT_NAME, "Phone");
+        values.put(ProductContract.ProductEntry.COLUMN_PRODUCT_PRICE, 5000);
         values.put(ProductContract.ProductEntry.COLUMN_PRODUCT_QUANTITY, 5);
         values.put(ProductContract.ProductEntry.COLUMN_PRODUCT_IMAGE, image_path);
         values.put(ProductContract.ProductEntry.COLUMN_SUPPLIER_NBR, "9898989898");
+        values.put(ProductContract.ProductEntry.COLUMN_COLOR, "Black");
+        values.put(ProductContract.ProductEntry.COLUMN_SIZE, 50);;
 
 
         Uri newUri = getContentResolver().insert(ProductContract.ProductEntry.CONTENT_URI, values);
@@ -110,7 +111,9 @@ public class ProductListActivity extends AppCompatActivity implements LoaderMana
                 ProductContract.ProductEntry.COLUMN_PRODUCT_PRICE,
                 ProductContract.ProductEntry.COLUMN_PRODUCT_QUANTITY,
                 ProductContract.ProductEntry.COLUMN_PRODUCT_IMAGE,
-                ProductContract.ProductEntry.COLUMN_SUPPLIER_NBR};
+                ProductContract.ProductEntry.COLUMN_SUPPLIER_NBR,
+                ProductContract.ProductEntry.COLUMN_COLOR,
+                ProductContract.ProductEntry.COLUMN_SIZE};
 
         return new CursorLoader(this,   // Parent activity context
                 ProductContract.ProductEntry.CONTENT_URI,   // Provider content URI to query

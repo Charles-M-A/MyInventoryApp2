@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ark.myinventoryapp">
+    package="com.example.ark.myphones">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ProductListActivity"
+            android:name="com.example.ark.myphones.ProductListActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,15 +17,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ProductEditActivity">
+        <activity android:name="com.example.ark.myphones.ProductEditActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.ark.myinventoryapp.ProductListActivity" />
+                android:value="com.example.ark.myphones.ProductListActivity" />
         </activity>
 
         <provider
-            android:name=".data.ProductProvider"
-            android:authorities="com.example.ark.myinventoryapp"
+            android:name="com.example.ark.myphones.data.ProductProvider"
+            android:authorities="com.example.ark.myphones"
             android:exported="false" />
     </application>
 

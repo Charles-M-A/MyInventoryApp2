@@ -1,4 +1,4 @@
-package com.example.ark.myinventoryapp;
+package com.example.ark.myphones;
 
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -14,7 +14,7 @@ import android.widget.CursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ark.myinventoryapp.data.ProductContract;
+import com.example.ark.myphones.data.ProductContract;
 
 public class ProductCursorAdapter extends CursorAdapter {
 
@@ -41,24 +41,37 @@ public class ProductCursorAdapter extends CursorAdapter {
         mCursor = cursor;
         TextView nameTextView = (TextView) view.findViewById(R.id.name);
         TextView priceTextView = (TextView) view.findViewById(R.id.price);
+        TextView colorTextView = (TextView) view.findViewById(R.id.color);
+        TextView sizeTextView = (TextView) view.findViewById(R.id.size);
         final TextView quantityTextView = (TextView) view.findViewById(R.id.quantity);
         int nameColumnIndex = cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_PRODUCT_NAME);
         int priceColumnIndex = cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_PRODUCT_PRICE);
         int quantityColumnIndex = cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_PRODUCT_QUANTITY);
         int itemIdIndex = cursor.getColumnIndex(ProductContract.ProductEntry._ID);
         final int itemId = cursor.getInt(itemIdIndex);
+        int colorColumnIndex = cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_COLOR);
+        int sizeColumnIndex = cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_SIZE);
 
         String productName = cursor.getString(nameColumnIndex);
         Integer productPrice = cursor.getInt(priceColumnIndex);
         Integer productQuantity = cursor.getInt(quantityColumnIndex);
+        String productColor = cursor.getString(colorColumnIndex);
+        Integer productSize = cursor.getInt(sizeColumnIndex);
 
 
         if (TextUtils.isEmpty(productName)) {
             productName = context.getString(R.string.unknown_product);
         }
 
+        if (TextUtils.isEmpty(productColor)) {
+            productColor = context.getString(R.string.unknown_color);
+        }
+
+
         nameTextView.setText(productName);
         priceTextView.setText(String.valueOf(productPrice));
+        colorTextView.setText(productColor);
+        sizeTextView.setText(String.valueOf(productSize));
         quantityTextView.setText(String.valueOf(productQuantity));
 
         Button sellButton = (Button) view.findViewById(R.id.button_sell);

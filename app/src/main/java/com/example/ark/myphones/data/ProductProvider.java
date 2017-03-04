@@ -1,4 +1,4 @@
-package com.example.ark.myinventoryapp.data;
+package com.example.ark.myphones.data;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
 
-import com.example.ark.myinventoryapp.data.ProductContract.ProductEntry;
+import com.example.ark.myphones.data.ProductContract.ProductEntry;
 
 
 /**
@@ -92,6 +92,15 @@ public class ProductProvider extends ContentProvider {
             throw new IllegalArgumentException("Product requires valid price");
         }
 
+        String color = values.getAsString(ProductEntry.COLUMN_COLOR);
+        if (color == null) {
+            throw new IllegalArgumentException("Product requires a Color");
+        }
+
+        Integer size = values.getAsInteger(ProductEntry.COLUMN_SIZE);
+        if (size != null && size < 0) {
+            throw new IllegalArgumentException("Product requires valid size");
+        }
 
         String image = values.getAsString(ProductEntry.COLUMN_PRODUCT_IMAGE);
         if (image == null) {
@@ -151,6 +160,7 @@ public class ProductProvider extends ContentProvider {
         }
 
 
+
         if (values.containsKey(ProductEntry.COLUMN_PRODUCT_IMAGE)) {
             String image = values.getAsString(ProductEntry.COLUMN_PRODUCT_IMAGE);
             if (image == null) {
@@ -165,6 +175,21 @@ public class ProductProvider extends ContentProvider {
                 throw new IllegalArgumentException("Enter a valid Contact nbr");
             }
         }
+
+        if (values.containsKey(ProductEntry.COLUMN_SIZE)) {
+            Integer size = values.getAsInteger(ProductEntry.COLUMN_SIZE);
+            if (size != null && size < 0) {
+                throw new IllegalArgumentException("Enter a valid size");
+            }
+        }
+
+        if (values.containsKey(ProductEntry.COLUMN_COLOR)) {
+            String color = values.getAsString(ProductEntry.COLUMN_COLOR);
+            if (color == null) {
+                throw new IllegalArgumentException("Product requires a color");
+            }
+        }
+
 
         if (values.size() == 0) {
             return 0;

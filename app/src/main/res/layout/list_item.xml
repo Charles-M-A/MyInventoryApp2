@@ -57,6 +57,7 @@
             tools:text="5"
             android:textAlignment="textStart" />
 
+
         <Button
             android:id="@+id/button_sell"
             style="@style/Widget.AppCompat.Button.Colored"
@@ -69,5 +70,46 @@
             android:textColor="@android:color/white" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/spec1"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/fontColor" />
+
+        <TextView
+            android:id="@+id/size"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.55"
+            android:textAppearance="?android:textAppearanceMedium"
+            tools:text="56567"
+            android:textColor="@color/fontColor"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/spec2"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/fontColor" />
+
+        <TextView
+            android:id="@+id/color"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/fontColor"
+            tools:text="Black"
+            android:textAlignment="textStart" />
+        </LinearLayout>
 </LinearLayout>

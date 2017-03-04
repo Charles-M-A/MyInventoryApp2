@@ -39,4 +39,9 @@
     <string name="button_order_product">Re-Order</string>
     <string name="list_sell">Sell</string>
     <string name="prompt_for_details">"Please fill all product details"</string>
+    <string name="spec1">Size in inches:</string>
+    <string name="spec2">Color:</string>
+    <string name="dspec1">Size</string>
+    <string name="dspec2">Color</string>
+    <string name="unknown_color">No Color</string>
 </resources>

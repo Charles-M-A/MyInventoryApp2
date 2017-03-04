@@ -1,10 +1,10 @@
-package com.example.ark.myinventoryapp.data;
+package com.example.ark.myphones.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.ark.myinventoryapp.data.ProductContract.ProductEntry;
+import com.example.ark.myphones.data.ProductContract.ProductEntry;
 
 
 public class ProductDbHelper extends SQLiteOpenHelper {
@@ -22,10 +22,13 @@ public class ProductDbHelper extends SQLiteOpenHelper {
         String SQL_CREATE_PRODUCTS_TABLE = "CREATE TABLE " + ProductEntry.TABLE_NAME + " ("
                 + ProductEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + ProductEntry.COLUMN_PRODUCT_NAME + " TEXT NOT NULL, "
+                + ProductEntry.COLUMN_PRODUCT_NAME + " TEXT NOT NULL, "
                 + ProductEntry.COLUMN_PRODUCT_PRICE + " INTEGER NOT NULL, "
                 + ProductEntry.COLUMN_PRODUCT_QUANTITY + " INTEGER DEFAULT 0, "
                 + ProductEntry.COLUMN_PRODUCT_IMAGE + " TEXT NOT NULL, "
-                + ProductEntry.COLUMN_SUPPLIER_NBR + " INTEGER NOT NULL);";
+                + ProductEntry.COLUMN_SUPPLIER_NBR + " INTEGER NOT NULL,"
+                + ProductEntry.COLUMN_SIZE + " INTEGER NOT NULL, "
+                + ProductEntry.COLUMN_COLOR + " TEXT NOT NULL); ";
 
         db.execSQL(SQL_CREATE_PRODUCTS_TABLE);
     }
